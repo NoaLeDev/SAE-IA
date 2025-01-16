@@ -20,7 +20,7 @@ client = InfluxDBClient(url=INFLUXDB_URL, token=INFLUXDB_TOKEN, org=ORG, timeout
 query_api = client.query_api()
 
 query_temp = f'''from(bucket: "{BUCKET}")
-    |> range (start: 0)
+    |> range (start: -14d)
     |> filter(fn:  (r) => r._measurement == "°C")
     |> filter(fn:  (r) => r._field == "value")
     |> truncateTimeColumn(unit: 1m)
