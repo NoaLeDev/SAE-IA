@@ -34,7 +34,7 @@ Lancez la commande
 python parser.py -h
 ```
 
-La liste des commandes possibles apparait pour voir les informations d'un commande réuitilisez -h
+La liste des commandes possibles apparait pour voir les informations d'une commande réuitilisez -h
 
 Exemple
 ```
