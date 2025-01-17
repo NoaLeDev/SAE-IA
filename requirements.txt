@@ -1,0 +1,7 @@
+Flask==2.2.5
+influxdb_client==1.48.0
+matplotlib==3.8.0
+numpy==2.2.1
+pandas==2.2.3
+prophet==1.1.6
+scikit_learn==1.2.2

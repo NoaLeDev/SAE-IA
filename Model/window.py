@@ -1,4 +1,4 @@
-from loadData import results_dic
+import loadData
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
@@ -6,13 +6,15 @@ from sklearn.cluster import KMeans
 import dfparse 
 
 
-result = {
-    "co2": results_dic['9_in_1_multi_sensor_carbon_dioxide_co2_level'],
-    "voc" : results_dic['9_in_1_multi_sensor_volatile_organic_compound_level'],
-    "temp" : results_dic['9_in_1_multi_sensor_air_temperature']
-}
+def clustering_window(sensor_co2 = "9_in_1_multi_sensor_carbon_dioxide_co2_level", sensor_voc = "9_in_1_multi_sensor_volatile_organic_compound_level", sensor_temp="9_in_1_multi_sensor_air_temperature"):
+    results_dic = loadData.loadDis()
 
-def clustering_window(sensors=result):
+    result = {
+        "co2": results_dic[sensor_co2],
+        "voc" : results_dic[sensor_voc],
+        "temp" : results_dic[sensor_temp]
+    }
+
     df_list = []
 
     for key, value in result.items():

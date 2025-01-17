@@ -4,12 +4,10 @@ import dfparse as dfp
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from loadData import results_temp
+import loadData
 import numpy as np
 from prophet import Prophet 
 import datetime as dt
-
-df = results_temp
 
 def remove_tz(x):
     return pd.to_datetime(x)
@@ -18,7 +16,8 @@ def round_temp(x):
     return round(x,3)
 
 
-def regression_temp(time,df=df,sensor_id="9_in_1_multi_sensor_air_temperature"):
+def regression_temp(time,sensor_id="9_in_1_multi_sensor_air_temperature"):
+    df = loadData.loadTemp()
     df = df[df["entity_id"] == sensor_id]  
     dfsw = dfp.DfTimeSeriesSlidingWindow(df,100, time, "value")
 
@@ -40,7 +39,8 @@ def regression_temp(time,df=df,sensor_id="9_in_1_multi_sensor_air_temperature"):
     
 # regression_temp(20)
 
-def prediction_temp(time, df=df, sensor_id="9_in_1_multi_sensor_air_temperature"):
+def prediction_temp(time, sensor_id="9_in_1_multi_sensor_air_temperature"):
+    df = loadData.loadTemp()
     df = df[df["entity_id"] == sensor_id]  
     df = df[["_time", "value"]]
     df = df.rename(columns={"_time" : "ds", "value" : "y"})

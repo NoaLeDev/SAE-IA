@@ -1,8 +1,12 @@
 import pandas as pd
-from loadData import results_dic
+import loadData
 import numpy as np
 
-def discomfort(THRESHOLD=2, TEMP_MAX=29, TEMP_MIN = 18, HUMIDITY_MAX = 60, HUMIDITY_MIN = 40, CO2_PPM_MAX = 1000, VOC_PPM_MAX = 0.6, results_dic=results_dic):
+
+
+def discomfort(THRESHOLD=2, TEMP_MAX=29, TEMP_MIN = 18, HUMIDITY_MAX = 60, HUMIDITY_MIN = 40, CO2_PPM_MAX = 1000, VOC_PPM_MAX = 0.6):
+
+    results_dic = loadData.loadDis()
 
     coeff = 0
 
