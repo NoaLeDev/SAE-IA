@@ -29,7 +29,7 @@ Pour avoir la liste des commandes possibles, allez dans le fichier  xxx/SAE-IA/M
 cd Model
 ```
 
-Lancez la commande 
+Lancez la commande suivante
 ```
 python parser.py -h
 ```
