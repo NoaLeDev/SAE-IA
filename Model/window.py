@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 import dfparse 
 
 
-def clustering_window(sensor_co2 = "9_in_1_multi_sensor_carbon_dioxide_co2_level", sensor_voc = "9_in_1_multi_sensor_volatile_organic_compound_level", sensor_temp="9_in_1_multi_sensor_air_temperature"):
+def clustering_window(sensor_co2 = "air_quality_sensor_1_fenetre_salle_11_co2", sensor_voc = "air_quality_sensor_1_fenetre_salle_11_particules", sensor_temp="air_quality_sensor_1_fenetre_salle_11_temperature"):
     results_dic = loadData.loadDis()
 
     result = {
@@ -30,14 +30,11 @@ def clustering_window(sensor_co2 = "9_in_1_multi_sensor_carbon_dioxide_co2_level
 
     kmeans = KMeans(n_clusters=2, random_state=0, n_init="auto").fit(X)
 
-    print(kmeans.labels_)
-    print(kmeans.cluster_centers_)
-
     current_value = X.tail(1)
 
     y = kmeans.predict(current_value)
 
     if y[0] :
-        return "La fenêtre est fermée."
-    else :
         return "La fenêtre est ouverte."
+    else :
+        return "La fenêtre est fermée."

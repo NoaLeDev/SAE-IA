@@ -13,7 +13,7 @@ def main():
     
     parser_dis = subparsers.add_parser("discomfort", help="Dit si une salle est en situation d'inconfort")
     
-    parser_window = subparsers.add_parser("window", help="Dit si la fenêtre d'une salle est ouverte (salle par défaut : salle de pause tétras)")
+    parser_window = subparsers.add_parser("window", help="Dit si la fenêtre d'une salle est ouverte (salle par défaut : salle 11 de tétras)")
 
     parser_temp_regress = subparsers.add_parser("regress", help="Regression linéaire de la température")
     parser_temp_regress.add_argument("--time", type=int, default=20, help="Temps en minutes de la prédiction (20 par défaut)")
