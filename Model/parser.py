@@ -34,7 +34,7 @@ def main():
     if args.fonction == "discomfort":
         print(discomfort.discomfort())
     elif args.fonction == "window":
-        print(window.clustering_window())
+        print(window.clustering_window(sensors=args.sensors))
     elif args.fonction == "regress":
         print(temp.regression_temp(args.time, sensor_id=args.sensor))
     elif args.fonction == "predict":
