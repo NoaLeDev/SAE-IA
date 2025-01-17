@@ -36,8 +36,6 @@ def clustering_window(sensors=result):
     y = kmeans.predict(current_value)
 
     if y[0] :
-        return False
+        return "La fenêtre est fermée."
     else :
-        return True 
-
-print(clustering_window())
+        return "La fenêtre est ouverte."

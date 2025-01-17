@@ -30,8 +30,6 @@ def regression_temp(time,df=df,sensor_id="9_in_1_multi_sensor_air_temperature"):
 
     y_pred = regr.predict(X_test[:3])[0]
     
-
-    print(y_pred)
     plt.plot(y_test[0], c="red", label="température réelle")
     plt.plot(y_pred, c="blue", label="température prédite")
     plt.legend()
@@ -66,8 +64,6 @@ def prediction_temp(time, df=df, sensor_id="9_in_1_multi_sensor_air_temperature"
     pred = pred[pred["ds"] <= future_time]
     
     pred["yhat"] = pred["yhat"].apply(round_temp)
-    
-    print(pred)
     
     plt.plot(pred["ds"], pred["yhat"], c="red", label="température prédite")
     plt.title("Prédiction de température")
